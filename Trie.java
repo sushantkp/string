@@ -88,9 +88,9 @@ public class Trie {
             t.insert(s);
         }
 
-        System.out.println(t.lookup("tempo"));
-        System.out.println(t.lookup("trie"));
-        System.out.println(t.lookup(""));
+        assert t.lookup("tempo") : "keyword not found. false negative.";
+        assert !t.lookup("trie") : "keyword found. false positive";
+        assert !t.lookup("") : "keyword found. false positive";
         try {
             System.out.println(t.lookup(null));
             assert false;
